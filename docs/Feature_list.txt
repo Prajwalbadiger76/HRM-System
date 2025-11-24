@@ -1,0 +1,23 @@
+HRM System – Completed Modules
+
+Dashboard overview
+Employee management (CRUD + profile)
+Attendance punch in and punch out
+Leave apply with conflict detection
+Leave requests approval and rejection
+Payroll calculation using Java microservice
+Finance dashboard with salary calculations
+File manager with upload and view
+Department management
+Holiday management
+Announcement board
+Assets management
+Travel request management
+Complaints system
+Warning notifications
+Promotion management
+Resignation record system
+Termination record system
+Shift schedule basic
+Database backup and restore
+Authentication and authorization with JWT

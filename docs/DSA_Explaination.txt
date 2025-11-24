@@ -1,0 +1,24 @@
+DSA Component Explanation: Leave Conflict Detection Algorithm
+
+Purpose:
+To prevent employees from applying overlapping leave requests.
+
+Logic:
+When an employee submits a new leave request, the system checks existing approved leaves. If any interval overlaps, the leave is rejected.
+
+Algorithm Flow:
+
+Fetch all previously approved leave intervals for the user.
+
+Sort leave intervals by end date.
+
+Use greedy interval scheduling to choose non-conflicting intervals.
+
+If an interval overlaps, conflict detected.
+
+Time Complexity:
+Sorting: O(n log n)
+Scanning intervals: O(n)
+Total complexity: O(n log n)
+
+Therefore, the algorithm efficiently handles large datasets.

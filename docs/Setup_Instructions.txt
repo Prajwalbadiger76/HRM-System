@@ -1,0 +1,39 @@
+Setup Instructions
+
+Clone the project repository
+git clone <repository link>
+cd SISUNI_TASK
+
+Backend setup
+cd backend-node
+npm install
+
+Create .env file and add:
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/hrm
+JWT_SECRET=secret123
+
+Start backend-node
+npm run dev
+
+Backend runs on:
+http://localhost:5000
+
+Frontend setup
+cd frontend-react
+npm install
+npm run dev
+
+Frontend runs on:
+http://localhost:5173/
+
+Java Payroll Microservice
+cd java-service-payroll
+mvn clean install
+mvn spring-boot:run
+
+Java service runs on:
+http://localhost:8081/
+
+MongoDB requirements
+Install MongoDB server and MongoDB tools (for mongodump, mongorestore)

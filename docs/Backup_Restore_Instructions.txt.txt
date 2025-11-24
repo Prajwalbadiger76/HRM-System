@@ -1,0 +1,17 @@
+Database Backup and Restore
+
+Automatic Backup
+Run backup script:
+backend/scripts/mongo-backup.bat
+
+Creates directory:
+backup/YYYY-MM-DD/
+
+Manual MongoDB Backup
+mongodump --db hrm --out backup/
+
+Restore MongoDB
+mongorestore --db hrm backup/
+
+Restore Script
+backend/scripts/mongo-restore.bat

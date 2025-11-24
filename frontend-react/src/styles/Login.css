@@ -1,0 +1,57 @@
+/* Background page styling */
+.login-container {
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* modern gradient */
+  animation: fadeInBg 0.4s ease-in-out;
+    margin-left: 35rem;
+    border-radius: 20px;
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Card shadow & animation */
+.login-box {
+  animation: slideUp 0.35s ease-in-out;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+
+}
+
+@keyframes slideUp {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Title styling */
+.login-title {
+  color: #66748b;
+}
+
+/* Input styles */
+.login-input {
+  transition: all 0.25s ease;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+.login-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.6);
+  outline: none;
+}
+
+/* Button styles */
+.login-btn {
+  transition: all 0.25s ease;
+  font-size: 17px;
+}
+
+.login-btn:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.02);
+}
