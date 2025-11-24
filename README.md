@@ -142,7 +142,9 @@ http://localhost:8080
 
 **Author:** Prajwal Badiger
 **Role:** Full Stack Developer — MERN + Java + DSA
+
 **LinkedIn:** *https://www.linkedin.com/in/prajwal-badiger-388766220/*
+
 **GitHub:** *https://github.com/Prajwalbadiger76/HRM-System.git*
 
 ---
