@@ -1,83 +1,66 @@
-# 🚀 Modern HRM System (MERN + Java + DSA)
+# 🚀 Modern HRM System — MERN + Java + DSA
 
-A **modernized Human Resource Management System** rebuilt from an old PHP-based HRM script using the **MERN Stack + Java Spring Boot + DSA-based backend logic**.  
-This system provides employee management, attendance monitoring, leave processing with conflict detection, and automated payroll generation.
+A modern Human Resource Management System rebuilt from the legacy PHP-based HRM software.  
+This version contains separate services for **Frontend (React)**, **Backend (Node + Express)**, and **Payroll Engine (Java Spring Boot)**, based on real enterprise structure and DSA-driven logic.
 
 ---
 
-## 📌 Project Overview
+## 📦 Folder Structure (from project ZIP)
 
-This project converts the legacy PHP system into a modern, scalable architecture using modular frontend and backend applications.  
-It uses the old SQL database structure as reference and implements enhanced performance & logic using Data Structures and Algorithms.
+```
+
+HRM System/
+│
+├── backend-node/             # Express Node.js server APIs
+├── frontend-react/           # React.js Frontend
+├── java-service-payroll/     # Payroll microservice (Spring Boot)
+├── backup/                   # Old SQL database & analysis files
+└── docs/                     # Documentation and reference files
+
+```
 
 ---
 
 ## 🔧 Tech Stack
 
-| Layer | Technology |
-|--------|------------|
-| Frontend | React.js, Tailwind / Material UI |
-| Backend (Primary) | Node.js, Express.js, JWT Auth, REST APIs |
-| Backend (Payroll Module) | Java Spring Boot |
-| Database | MongoDB (converted from SQL relational structure) |
-| Real-time Logic | Socket.io (optional future enhancement) |
-| DSA Implementation | Greedy Interval Scheduling for Leave Conflict |
+| Layer | Technologies |
+|--------|-------------|
+| Frontend | React.js, Vite, Tailwind / Material UI |
+| Backend (Primary) | Node.js, Express.js, MongoDB, JWT Auth |
+| Payroll Engine | Java Spring Boot |
+| Algorithm Usage | Greedy Interval Scheduling for leave conflict |
+| Database | MongoDB (converted from old SQL schema) |
 
 ---
 
 ## 🧠 Key Features
 
 | Module | Description |
-|--------|------------|
-| Employee Management | CRUD operations for employee details |
-| Leave Management | Leave apply, approval, rejection, conflict detection |
-| Attendance System | Daily presence/absence tracking |
-| Payroll Management | Salary calculation & deduction logic in Java Spring Boot |
-| Admin Dashboard | HR insights and statistics |
-| Authentication | JWT-based secure login system |
+|--------|-------------|
+| Employee Management | CRUD operations |
+| Leave Management | DSA-based conflict detection, approval workflow |
+| Payroll System | Calculated using attendance, penalty & salary structure |
+| Attendance | Daily check-in tracking |
+| Admin Dashboard | HR data insights |
+| Secure Auth | JWT Login, Admin / Employee roles |
 
 ---
 
-## 📂 Project Structure
+## 📘 DSA Usage — Greedy Interval Scheduling
 
-```
-
-hrm-system/
-│
-├── client/           # React Frontend
-├── server/           # Node + Express Backend APIs
-├── springboot/       # Java Payroll Logic
-└── database/         # Old SQL reference + MongoDB schema
-
-```
-
----
-
-## 🧠 Important DSA Usage (Greedy Algorithm)
-### **Greedy Interval Scheduling for Leave Conflict**
-To prevent overlapping leave intervals, the system sorts existing leaves by end-date and checks conflict efficiently:
-
+Used to prevent overlapping leave dates:
 ```
 
 if (!(newEnd < existingStart || newStart > existingEnd))
 → conflict detected
 
 ```
-
-### ⏳ Time Complexity
-```
-
-Sorting: O(N log N)
-Checking: O(N)
-Overall: O(N log N)
-
-```
+**Time Complexity:** `O(N log N)`
 
 ---
 
-## 💰 Payroll Logic (Java Spring Boot)
+## 💰 Payroll Calculation (Java Service)
 
-### **Salary Formula**
 ```
 
 Net Salary = (Basic Salary + Allowance) – (Deductions + LeavePenalty)
@@ -85,90 +68,86 @@ LeavePenalty = AbsentDays × (BasicSalary / TotalDays)
 
 ````
 
-### Key Highlights
-- Uses Java Streams for efficient attendance computation
-- O(N) performance
-- Clean Controller-Service-Repository layered architecture
+---
+
+# ▶ How to Run the Project
+
+## **1️⃣ Start Backend (Node + Express)**
+
+```bash
+cd HRM System/backend-node
+npm install
+npm start
+````
+
+Server will run on:
+
+```
+http://localhost:9090
+```
 
 ---
 
-## 🛠 Setup Instructions
-
-### **1️⃣ Clone Repository**
-```bash
-git clone https://github.com/your-username/hrm-system.git
-cd hrm-system
-````
-
-### **2️⃣ Start Node / Express Backend**
+## **2️⃣ Start Frontend (React)**
 
 ```bash
-cd server
-npm install
-npm start
-```
-
-### **3️⃣ Start React Frontend**
-
-```bash
-cd client
+cd HRM System/frontend-react
 npm install
 npm run dev
 ```
 
-### **4️⃣ Run Java Payroll Microservice**
+Frontend URL:
+
+```
+http://localhost:5173
+```
+
+---
+
+## **3️⃣ Run Payroll Java Microservice (Spring Boot)**
 
 ```bash
-cd springboot
+cd HRM System/java-service-payroll
 mvn spring-boot:run
+```
+
+Service runs on:
+
+```
+http://localhost:8080
 ```
 
 ---
 
 ## 🗄 Database Setup
 
-* Old SQL file available under `/database/hrmss.sql` (reference for table → collection mapping)
-* MongoDB creates collections automatically at runtime
+* MongoDB must be running locally
+* Import SQL reference file manually only for *understanding tables & redesign structure*
+  (found inside: `/backup/hrmss.sql`)
+* Collections will be auto-created on runtime
 
 ---
 
 ## 🎯 Future Enhancements
 
-* QR / Biometric attendance integration
-* Salary slip PDF generator
-* AI-based employee performance metrics
-* Email notifications & reminders
-* Role-based access control (RBAC)
-
----
-
-## 🤝 Contributing
-
-Contributions and feedback are welcome.
-Feel free to open an issue or submit a pull request.
+* Order Tracking 
+* Performance dashboard
+* Salary slip PDF generation
+* Biometric / QR attendance
+* Automated email notifications
+* RBAC Permission system
 
 ---
 
 ## 📞 Contact
 
 **Author:** Prajwal Badiger
-**Role:** Full Stack Developer (MERN + Java + DSA)
-**LinkedIn:** *Add link here*
-**GitHub:** *Add link here*
+**Role:** Full Stack Developer — MERN + Java + DSA
+**LinkedIn:** *https://www.linkedin.com/in/prajwal-badiger-388766220/*
+**GitHub:** *https://github.com/Prajwalbadiger76/HRM-System.git*
 
 ---
 
-### ⭐ If you found this project useful, consider giving it a star!
+### ⭐ Support
 
-```
-
----
-
-### Want to add?
-
-📌 Architecture Diagram  
-📌 Screen UI / screenshots section  
-📌 Demo video section example
-
-Tell me and I’ll generate them too. 🚀
-```
+If this project helped you, please star ⭐ the repository.
