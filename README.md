@@ -5,7 +5,7 @@ This version contains separate services for **Frontend (React)**, **Backend (Nod
 
 ---
 
-## 📦 Folder Structure (from project ZIP)
+## 📦 Folder Structure
 
 ```
 
