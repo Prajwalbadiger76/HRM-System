@@ -130,7 +130,6 @@ http://localhost:8080
 
 ## 🎯 Future Enhancements
 
-* Order Tracking 
 * Performance dashboard
 * Salary slip PDF generation
 * Biometric / QR attendance
