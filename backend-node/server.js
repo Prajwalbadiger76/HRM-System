@@ -1,6 +1,9 @@
 ﻿import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+
+import routes from "./src/routes/index.js";   // <--- Import here
+
 import connectDB from "./src/config/db.js";
 import leaveRoutes from "./src/routes/leave.routes.js";
 import dashboardRoutes from "./src/routes/dashboard.routes.js";
@@ -25,10 +28,6 @@ import travelRoutes from "./src/routes/travel.routes.js";
 
 
 
-
-
-
-import routes from "./src/routes/index.js";   // <--- Import here
 
 dotenv.config();
 const app = express();
