@@ -2,7 +2,7 @@ Setup Instructions
 
 Clone the project repository
 git clone <repository link>
-cd SISUNI_TASK
+cd HRM-System
 
 Backend setup
 cd backend-node
