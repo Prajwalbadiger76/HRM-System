@@ -29,13 +29,16 @@ import Promotions from "./pages/Promotions";
 import Finance from "./pages/Finance";
 import Shifts from "./pages/Shifts";
 import Travel from "./pages/Travel";
+import Register from "./pages/Register";
 
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<Register />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/employees" element={<Employees />} />
       <Route path="/attendance" element={<Attendance />} />
@@ -59,6 +62,7 @@ function App() {
       <Route path="/shifts" element={<Shifts />} />
       <Route path="/travel" element={<Travel />} />
       <Route path="/backup" element={<Backup />} />
+
 
 
     </Routes>
