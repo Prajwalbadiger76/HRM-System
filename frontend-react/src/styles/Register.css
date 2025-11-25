@@ -2,6 +2,19 @@
 body {
       background-color: #121212;
 }
+
+.register-link {
+  color: #2563eb;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+  transform: scale(1.03);
+}
+
+
 .register-wrapper {
 
   height: 100vh;
@@ -81,9 +94,14 @@ body {
   margin-left: 5px;
 }
 
-#role {
-  width: 32.9rem;
-}
+
 #register-btn {
       width: 32.9rem;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }

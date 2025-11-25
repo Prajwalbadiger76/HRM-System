@@ -1,91 +1,76 @@
-import { useState } from "react";
-import axios from "axios";
 import "../styles/Register.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import API from "../services/api";
 
 const Register = () => {
-  const navigate = useNavigate();  // redirect hook
-
-  const [formData, setFormData] = useState({
-    name: "",
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
-    role: "Employee",
+    role: "employee",
   });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("FORM DATA:", formData);
-
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", formData);
-      alert("Registration successful! Redirecting to login...");
-      console.log("REGISTER RESPONSE:", response.data);
-
-      // redirect to login after register success
-      navigate("/login");
-
+      console.log("FORM DATA:", form);
+      await API.post("/auth/register", form);
+      alert("Registered successfully!");
     } catch (error) {
       console.log("REGISTER ERROR:", error);
-      alert(error.response?.data?.message || "Registration failed");
+      alert(error.response?.data?.message || "Failed to register");
     }
   };
 
   return (
-    <div className="register-wrapper">
-      <div className="register-box">
-        <h2 className="register-title">Create Account</h2>
+    <div className="min-h-screen flex items-center justify-center register-container">
+      <div className="register-box bg-white shadow-xl">
+        <h1 className="text-2xl font-bold register-title">Create Account</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-3">
           <input
             type="text"
-            name="name"
-            placeholder="Full Name"
+            placeholder="First Name"
             className="register-input"
-            onChange={handleChange}
-            required
+            onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+          />
+
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="register-input"
+            onChange={(e) => setForm({ ...form, lastName: e.target.value })}
           />
 
           <input
             type="email"
-            name="email"
             placeholder="Email"
             className="register-input"
-            onChange={handleChange}
-            required
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
 
           <input
             type="password"
-            name="password"
             placeholder="Password"
             className="register-input"
-            onChange={handleChange}
-            required
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
 
-          <select
-            name="role"
-            className="register-input"
-            onChange={handleChange}
+          <button
+            type="submit"
+            className="bg-blue-600 text-white register-btn" id="register-btn"
           >
-            <option value="Employee">Employee</option>
-            <option value="Admin">Admin</option>
-          </select>
-
-          <button type="submit" className="register-btn">
             Register
           </button>
-        </form>
 
-        <p className="register-bottom-text">
-          Already have an account?
-          <Link to="/login"> Login</Link>
-        </p>
+            <p className="text-center text-sm text-gray-500 mt-2">
+    Already have an account?{" "}
+    <a href="/login" className="text-blue-600 font-semibold hover:underline">
+      Login
+    </a>
+  </p>
+        </form>
       </div>
     </div>
   );
