@@ -9,7 +9,7 @@ This version contains separate services for **Frontend (React)**, **Backend (Nod
 
 ```
 
-HRM System/
+HRM-System/
 │
 ├── backend-node/             # Express Node.js server APIs
 ├── frontend-react/           # React.js Frontend
@@ -75,7 +75,7 @@ LeavePenalty = AbsentDays × (BasicSalary / TotalDays)
 ## **1️⃣ Start Backend (Node + Express)**
 
 ```bash
-cd HRM System/backend-node
+cd HRM-System/backend-node
 npm install
 npm start
 ````
@@ -91,7 +91,7 @@ http://localhost:9090
 ## **2️⃣ Start Frontend (React)**
 
 ```bash
-cd HRM System/frontend-react
+cd HRM-System/frontend-react
 npm install
 npm run dev
 ```
@@ -107,7 +107,7 @@ http://localhost:5173
 ## **3️⃣ Run Payroll Java Microservice (Spring Boot)**
 
 ```bash
-cd HRM System/java-service-payroll
+cd HRM-System/java-service-payroll
 mvn spring-boot:run
 ```
 
