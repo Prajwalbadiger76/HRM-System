@@ -1,22 +1,33 @@
 import Leave from "../models/leave.model.js";
 
-// APPLY LEAVE
+// APPLY LEAVE (with DSA - Greedy Interval Scheduling)
 export const applyLeave = async (req, res) => {
   try {
     const employeeId = req.user.id;
     const { type, startDate, endDate, reason } = req.body;
 
-    const conflicts = await Leave.find({
-      employeeId,
-      status: "Approved",
-      startDate: { $lte: endDate },
-      endDate: { $gte: startDate }
-    });
+    // Step 1: Fetch existing approved leaves for employee
+    const existingLeaves = await Leave.find({ employeeId, status: "Approved" });
 
-    if (conflicts.length > 0) {
-      return res.status(409).json({ message: "Leave conflict detected" });
+    // Step 2: Convert strings to dates & sort by end date  (Greedy approach)
+    const sortedLeaves = existingLeaves.sort(
+      (a, b) => new Date(a.endDate) - new Date(b.endDate)
+    );
+
+    let lastEnd = sortedLeaves.length > 0 ? new Date(sortedLeaves[0].endDate) : null;
+
+    // Step 3: Detect conflict using Greedy interval check
+    for (let i = 0; i < sortedLeaves.length; i++) {
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+
+      // If overlaps with any approved leave
+      if (!(end < new Date(sortedLeaves[i].startDate) || start > new Date(sortedLeaves[i].endDate))) {
+        return res.status(409).json({ message: "Leave conflict detected (DSA Applied)" });
+      }
     }
 
+    // Step 4: Create Leave if no conflict
     const leave = await Leave.create({
       employeeId,
       type,
@@ -30,6 +41,7 @@ export const applyLeave = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 // APPROVE or REJECT
 export const updateLeaveStatus = async (req, res) => {
